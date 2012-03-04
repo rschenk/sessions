@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /sessions
   # GET /sessions.json
   def index

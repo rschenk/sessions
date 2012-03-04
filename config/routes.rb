@@ -3,7 +3,8 @@ Sessions::Application.routes.draw do
 
   get "home/index"
 
-  devise_for :users
+  # Skip helpers to avoid colliding with the "session" controller
+  devise_for :users, skip_helpers: true 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
