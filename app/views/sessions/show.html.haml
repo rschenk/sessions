@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @session.date
+%p
+  %b Wind speed:
+  = @session.wind_speed
+%p
+  %b Wind direction:
+  = @session.wind_direction
+%p
+  %b Comments:
+  = @session.comments
+%p
+  %b User:
+  = @session.user
+
+= link_to 'Edit', edit_session_path(@session)
+\|
+= link_to 'Back', sessions_path

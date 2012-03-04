@@ -20,11 +20,15 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
+  gem 'compass-susy-plugin', :require => 'susy'
 end
 
-group :development, :test do 
+group :development, :test do
   gem 'rspec-rails'
   gem 'haml-rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
 
 gem 'jquery-rails'

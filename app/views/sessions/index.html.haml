@@ -1,0 +1,27 @@
+%h1 Listing sessions
+
+%table
+  %tr
+    %th Date
+    %th Wind speed
+    %th Wind direction
+    %th Comments
+    %th User
+    %th
+    %th
+    %th
+
+  - @sessions.each do |session|
+    %tr
+      %td= session.date
+      %td= session.wind_speed
+      %td= session.wind_direction
+      %td= session.comments
+      %td= session.user
+      %td= link_to 'Show', session
+      %td= link_to 'Edit', edit_session_path(session)
+      %td= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Session', new_session_path
