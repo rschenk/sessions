@@ -31,6 +31,12 @@ group :development, :test do
   gem 'ruby_parser'
 end
 
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
