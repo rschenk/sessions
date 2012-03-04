@@ -1,0 +1,21 @@
+%h1 Listing kites
+
+%table
+  %tr
+    %th Name
+    %th User
+    %th
+    %th
+    %th
+
+  - @kites.each do |kite|
+    %tr
+      %td= kite.name
+      %td= kite.user
+      %td= link_to 'Show', kite
+      %td= link_to 'Edit', edit_kite_path(kite)
+      %td= link_to 'Destroy', kite, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Kite', new_kite_path

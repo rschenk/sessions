@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304204100) do
+ActiveRecord::Schema.define(:version => 20120304225822) do
+
+  create_table "boards", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
+
+  create_table "kites", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "kites", ["user_id"], :name => "index_kites_on_user_id"
 
   create_table "sessions", :force => true do |t|
     t.date     "date"
@@ -21,8 +39,12 @@ ActiveRecord::Schema.define(:version => 20120304204100) do
     t.integer  "user_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "kite_id"
+    t.integer  "board_id"
   end
 
+  add_index "sessions", ["board_id"], :name => "index_sessions_on_board_id"
+  add_index "sessions", ["kite_id"], :name => "index_sessions_on_kite_id"
   add_index "sessions", ["user_id"], :name => "index_sessions_on_user_id"
 
   create_table "users", :force => true do |t|

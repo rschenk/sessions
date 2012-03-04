@@ -1,4 +1,8 @@
 Sessions::Application.routes.draw do
+  resources :boards
+
+  resources :kites
+
   resources :sessions
 
   get "home/index"

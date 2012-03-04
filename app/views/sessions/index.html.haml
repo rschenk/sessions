@@ -17,7 +17,7 @@
       %td= session.wind_speed
       %td= session.wind_direction
       %td= session.comments
-      %td= session.user
+      %td= session.user.email
       %td= link_to 'Show', session
       %td= link_to 'Edit', edit_session_path(session)
       %td= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete

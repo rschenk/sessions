@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @kite.name
+%p
+  %b User:
+  = @kite.user
+
+= link_to 'Edit', edit_kite_path(@kite)
+\|
+= link_to 'Back', kites_path

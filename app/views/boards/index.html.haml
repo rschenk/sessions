@@ -1,0 +1,21 @@
+%h1 Listing boards
+
+%table
+  %tr
+    %th Name
+    %th User
+    %th
+    %th
+    %th
+
+  - @boards.each do |board|
+    %tr
+      %td= board.name
+      %td= board.user
+      %td= link_to 'Show', board
+      %td= link_to 'Edit', edit_board_path(board)
+      %td= link_to 'Destroy', board, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Board', new_board_path
