@@ -6,6 +6,21 @@
         - @session.errors.full_messages.each do |msg|
           %li= msg
 
+  %ul.boards
+    - @user.boards.each do |board|
+      %li
+        %label
+          = f.radio_button :board_id, board.id
+          = board.name
+          
+  %ul.kites
+    - @user.kites.each do |kite|
+      %li
+        %label
+          = f.radio_button :kite_id, kite.id
+          = kite.name
+  
+      
   .field
     = f.label :date
     = f.date_select :date

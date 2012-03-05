@@ -6,7 +6,8 @@
     %th Wind speed
     %th Wind direction
     %th Comments
-    %th User
+    %th Kite
+    %th Board
     %th
     %th
     %th
@@ -17,7 +18,8 @@
       %td= session.wind_speed
       %td= session.wind_direction
       %td= session.comments
-      %td= session.user.email
+      %td= session.kite.name rescue '--'
+      %td= session.board.name rescue '--'
       %td= link_to 'Show', session
       %td= link_to 'Edit', edit_session_path(session)
       %td= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete
