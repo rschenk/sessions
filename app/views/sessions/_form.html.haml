@@ -12,13 +12,19 @@
         %label
           = f.radio_button :board_id, board.id
           = board.name
-          
+    %li
+      = f.radio_button :board_id, '', checked: false
+      = f.fields_for :board_attributes do |board_form|
+        = board_form.label :name, "Other: "
+        = board_form.text_field :name, class: 'radioNested'
+    
   %ul.kites
     - @user.kites.each do |kite|
       %li
         %label
           = f.radio_button :kite_id, kite.id
           = kite.name
+    
   
       
   .field
