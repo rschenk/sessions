@@ -27,8 +27,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'haml-rails'
-  gem 'hpricot'
-  gem 'ruby_parser'
 end
 
 group :test do

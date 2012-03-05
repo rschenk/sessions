@@ -73,7 +73,6 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     hike (1.2.1)
-    hpricot (0.8.6)
     i18n (0.6.0)
     journey (1.0.3)
     jquery-rails (2.0.1)
@@ -131,14 +130,11 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.8.0)
-    ruby_parser (2.3.1)
-      sexp_processor (~> 3.0)
     sass (3.1.15)
     sass-rails (3.2.4)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sexp_processor (3.1.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -168,12 +164,10 @@ DEPENDENCIES
   factory_girl_rails
   haml
   haml-rails
-  hpricot
   jquery-rails
   kaminari
   mysql2
   rails (= 3.2.2)
   rspec-rails
-  ruby_parser
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
