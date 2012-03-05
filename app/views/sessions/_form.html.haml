@@ -24,6 +24,12 @@
         %label
           = f.radio_button :kite_id, kite.id
           = kite.name
+    %li
+      = f.radio_button :kite_id, '', checked: false
+      = f.fields_for :kite_attributes do |kite_form|
+        = kite_form.label :name, "Other: "
+        = kite_form.text_field :name, class: 'radioNested'
+    
     
   
       

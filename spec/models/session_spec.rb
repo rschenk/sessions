@@ -32,9 +32,10 @@ describe Session do
       sesh.board.user.should == sesh.user
     end
     
-    it "should not be valid if the board name is blank" do
+    it "should reject if the board name is blank" do
       sesh = Session.new(@attr.merge(board_attributes: { name: ''}))
-      sesh.should_not be_valid
+      sesh.should be_valid
+      sesh.board.should be_nil
     end
     
     it "should favor the board_id if both board_id and board_attributes are given" do
@@ -48,6 +49,45 @@ describe Session do
       sesh.save!
       sesh.board.should == @board
     end
-    
   end
+  
+  describe "nested kites" do
+    before(:each) do
+      @attr = {
+        date: Time.now,
+        user: FactoryGirl.create(:user)
+      }
+      
+      @kite_attr = {
+        name: "Best Waroo"
+      }
+      
+      @kite = FactoryGirl.create(:kite)
+    end
+    
+    it "should accept parameters for a nested kite" do
+      sesh = Session.new(@attr.merge(kite_attributes: @kite_attr))
+      sesh.save!
+      sesh.kite.name.should == @kite_attr[:name]
+    end
+    
+    it "should set the user_id of the nested kite" do
+      sesh = Session.new(@attr.merge(kite_attributes: @kite_attr))
+      sesh.save!
+      sesh.kite.user.should == sesh.user
+    end
+    
+    it "should reject if the kite name is blank" do
+      sesh = Session.new(@attr.merge(kite_attributes: { name: ''}))
+      sesh.should be_valid
+      sesh.kite.should be_nil
+    end
+    
+    it "should favor the kite_id if both kite_id and kite_attributes are given" do
+      sesh = Session.new(@attr.merge(kite_id: @kite.id, kite_attributes: @kite_attr))
+      sesh.save!
+      sesh.kite.should == @kite
+    end
+  end
+
 end

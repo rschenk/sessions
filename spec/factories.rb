@@ -7,6 +7,11 @@ FactoryGirl.define do
   end
   
   factory :board do 
-    name 'Ocean Rodeo Mako'
+    name 'DC Thug'
   end
+  
+  factory :kite do 
+    name 'Wainman Boss 12m'
+  end
+  
 end
