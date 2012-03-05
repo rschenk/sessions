@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = current_user.sessions.includes(:board, :kite).all
+    @sessions = current_user.sessions.includes(:board, :kite, :location).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1
   # GET /sessions/1.json
   def show
-    @session = current_user.sessions.includes(:board, :kite).find(params[:id])
+    @session = current_user.sessions.includes(:board, :kite, :location).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   # GET /sessions/new
   # GET /sessions/new.json
   def new
-    @user = User.find(current_user.id, include: [:boards, :kites])
+    @user = User.includes(:boards, :kites, :locations).find(current_user.id)
     @session = @user.sessions.new
 
     respond_to do |format|
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
 
   # GET /sessions/1/edit
   def edit
-    @user = User.find(current_user.id, include: [:boards, :kites])
+    @user = User.include(:boards, :kites, :locations).find(current_user.id)
     @session =  current_user.sessions.find(params[:id])
   end
 

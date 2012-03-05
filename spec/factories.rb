@@ -14,4 +14,7 @@ FactoryGirl.define do
     name 'Wainman Boss 12m'
   end
   
+  factory :location do 
+    name 'Chappaquoit Beach'
+  end
 end

@@ -4,6 +4,15 @@
   %b Date:
   = @session.date
 %p
+  %b Location:
+  = @session.location.name rescue '--'
+%p
+  %b Kite:
+  = @session.kite.name rescue '--'
+%p
+  %b Board:
+  = @session.board.name rescue '--'
+%p
   %b Wind speed:
   = @session.wind_speed
 %p

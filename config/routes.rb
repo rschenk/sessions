@@ -1,4 +1,6 @@
 Sessions::Application.routes.draw do
+  resources :locations
+
   resources :boards
 
   resources :kites

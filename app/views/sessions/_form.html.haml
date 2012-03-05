@@ -6,6 +6,21 @@
         - @session.errors.full_messages.each do |msg|
           %li= msg
 
+  %p Location
+  %ul.locations
+    - @user.locations.each do |location|
+      %li
+        %label
+          = f.radio_button :location_id, location.id
+          = location.name
+    %li
+      = f.radio_button :location_id, '', checked: false
+      = f.fields_for :location_attributes do |location_form|
+        = location_form.label :name, "Other: "
+        = location_form.text_field :name, class: 'radioNested'
+  
+
+  %p Board
   %ul.boards
     - @user.boards.each do |board|
       %li
@@ -17,7 +32,8 @@
       = f.fields_for :board_attributes do |board_form|
         = board_form.label :name, "Other: "
         = board_form.text_field :name, class: 'radioNested'
-    
+
+  %p Kite
   %ul.kites
     - @user.kites.each do |kite|
       %li

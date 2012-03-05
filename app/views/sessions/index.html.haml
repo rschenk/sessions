@@ -8,6 +8,7 @@
     %th Comments
     %th Kite
     %th Board
+    %th Location
     %th
     %th
     %th
@@ -20,6 +21,7 @@
       %td= session.comments
       %td= session.kite.name rescue '--'
       %td= session.board.name rescue '--'
+      %td= session.location.name rescue '--'
       %td= link_to 'Show', session
       %td= link_to 'Edit', edit_session_path(session)
       %td= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete

@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :sessions
   has_many :boards
   has_many :kites
+  has_many :locations
 end
