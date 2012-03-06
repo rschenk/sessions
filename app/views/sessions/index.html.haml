@@ -4,7 +4,6 @@
   %tr
     %th Date
     %th Wind speed
-    %th Wind direction
     %th Comments
     %th Kite
     %th Board
@@ -17,7 +16,6 @@
     %tr
       %td= session.date
       %td= session.wind_speed
-      %td= session.wind_direction
       %td= session.comments
       %td= session.kite.name rescue '--'
       %td= session.board.name rescue '--'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305135636) do
+ActiveRecord::Schema.define(:version => 20120306035007) do
 
   create_table "boards", :force => true do |t|
     t.string   "name"
@@ -43,11 +43,10 @@ ActiveRecord::Schema.define(:version => 20120305135636) do
   create_table "sessions", :force => true do |t|
     t.date     "date"
     t.integer  "wind_speed"
-    t.integer  "wind_direction"
     t.text     "comments"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "kite_id"
     t.integer  "board_id"
     t.integer  "location_id"
