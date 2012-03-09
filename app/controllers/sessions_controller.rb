@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
 
   # GET /sessions/1/edit
   def edit
-    @user = User.include(:boards, :kites, :locations).find(current_user.id)
+    @user = User.includes(:boards, :kites, :locations).find(current_user.id)
     @session =  current_user.sessions.find(params[:id])
   end
 
