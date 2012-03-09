@@ -6,49 +6,91 @@
         - @session.errors.full_messages.each do |msg|
           %li= msg
 
-  %p Location
-  %ul.locations
-    - @user.locations.each do |location|
-      %li
-        %label
-          = f.radio_button :location_id, location.id
-          = location.name
-    %li
-      = f.radio_button :location_id, '', checked: false
-      = f.fields_for :location_attributes do |location_form|
-        = location_form.label :name, "Other: "
-        = location_form.text_field :name, class: 'radioNested'
-  
-
-  %p Board
-  %ul.boards
-    - @user.boards.each do |board|
-      %li
-        %label
-          = f.radio_button :board_id, board.id
-          = board.name
-    %li
-      = f.radio_button :board_id, '', checked: false
-      = f.fields_for :board_attributes do |board_form|
-        = board_form.label :name, "Other: "
-        = board_form.text_field :name, class: 'radioNested'
-
-  %p Kite
-  %ul.kites
-    - @user.kites.each do |kite|
-      %li
-        %label
-          = f.radio_button :kite_id, kite.id
-          = kite.name
-    %li
-      = f.radio_button :kite_id, '', checked: false
-      = f.fields_for :kite_attributes do |kite_form|
-        = kite_form.label :name, "Other: "
-        = kite_form.text_field :name, class: 'radioNested'
+  -#  #location
+  -#    %h3 Location
+  -#    %ul.locations
+  -#      - @user.locations.each do |location|
+  -#        %li
+  -#          %label
+  -#            = f.radio_button :location_id, location.id
+  -#            = location.name
+  -#      %li
+  -#        = f.radio_button :location_id, '', checked: false
+  -#        = f.fields_for :location_attributes do |location_form|
+  -#          = location_form.label :name, "Other: "
+  -#          = location_form.text_field :name, class: 'radioNested'
+  -#  
+  -#  #board
+  -#    %h3 Board
+  -#    %ul.boards
+  -#      - @user.boards.each do |board|
+  -#        %li
+  -#          %label
+  -#            = f.radio_button :board_id, board.id
+  -#            = board.name
+  -#      %li
+  -#        = f.radio_button :board_id, '', checked: false
+  -#        = f.fields_for :board_attributes do |board_form|
+  -#          = board_form.label :name, "Other: "
+  -#          = board_form.text_field :name, class: 'radioNested'
+  -#  #kite
+  -#    %h3 Kite
+  -#    %ul.kites
+  -#      - @user.kites.each do |kite|
+  -#        %li
+  -#          %label
+  -#            = f.radio_button :kite_id, kite.id
+  -#            = kite.name
+  -#      %li
+  -#        = f.radio_button :kite_id, '', checked: false
+  -#        = f.fields_for :kite_attributes do |kite_form|
+  -#          = kite_form.label :name, "Other: "
+  -#          = kite_form.text_field :name, class: 'radioNested'
     
     
   
-      
+  .field
+    = f.fields_for :location_attributes do |location|
+      = location.label :name, "Location"
+      = location.text_field :name
+    = f.hidden_field :location_id
+    - content_for :domready do
+      :plain
+        $("#session_location_attributes_name").autocomplete({
+          source: #{ @user.locations.map{|location| { label: location.name, id: location.id } }.to_json },
+          change: function (event, ui) { $('#session_location_id').val(!ui.item ? '' : ui.item.id); },
+          delay: 0,
+          autoFocus: true
+        });
+  .field
+    = f.fields_for :kite_attributes do |kite|
+      = kite.label :name, "Kite"
+      = kite.text_field :name
+    = f.hidden_field :kite_id
+    - content_for :domready do
+      :plain
+        $("#session_kite_attributes_name").autocomplete({
+          source: #{ @user.kites.map{|kite| { label: kite.name, id: kite.id } }.to_json },
+          change: function (event, ui) { $('#session_kite_id').val(!ui.item ? '' : ui.item.id); },
+          delay: 0,
+          autoFocus: true
+        });
+  .field
+    = f.fields_for :board_attributes do |board|
+      = board.label :name, "Board"
+      = board.text_field :name
+    = f.hidden_field :board_id
+    - content_for :domready do
+      :plain
+        $("#session_board_attributes_name").autocomplete({
+          source: #{ @user.boards.map{|board| { label: board.name, id: board.id } }.to_json },
+          change: function (event, ui) { $('#session_board_id').val(!ui.item ? '' : ui.item.id); },
+          delay: 0,
+          autoFocus: true
+        });
+
+  
+  
   .field
     = f.label :date
     = f.date_select :date
@@ -60,3 +102,4 @@
     = f.text_area :comments
   .actions
     = f.submit 'Save'
+  

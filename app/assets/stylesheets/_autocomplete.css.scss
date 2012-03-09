@@ -1,0 +1,24 @@
+.ui-autocomplete.ui-menu {
+	position: absolute;
+	padding: 0;
+	list-style-type: none;
+	background-color: #fefefe;
+	border: 1px solid #aaa;
+
+	.ui-menu-item {
+		a {
+			display: block;
+			padding: 0.25em 0.5em;
+		}
+		
+		.ui-state-hover {
+			background-color: blue;
+		}
+	}
+}
+
+.textInput.ui-autocomplete-loading {
+	background-image: url(../images/autocomplete-loading.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+}

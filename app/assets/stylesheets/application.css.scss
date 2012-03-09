@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
 */
+
+@import "compass/reset";
+
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
