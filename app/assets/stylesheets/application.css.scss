@@ -9,11 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ * require_tree .
 */
 
-@import "compass/reset";
-
-body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
+@import "screen"

@@ -1,10 +1,20 @@
 // Imports -------------------------------------------------------------------
 
 @import "base";
+@import "grid";
+@import "forms";
+@import "autocomplete";
+@import "slider";
+
+@import "compass/reset";
 
 /* Layout ------------------------------------------------------------------*/
 
 .container {
   @include container;
   @include susy-grid-background;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
 }

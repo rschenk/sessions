@@ -1,0 +1,22 @@
+.ui-slider {
+	width:230px;
+	height:11px;
+	background: #ccc;
+	position:relative;
+	margin:0;
+	padding:0 10px;
+	
+	.ui-slider-handle {
+		width:24px;
+		height:24px;
+		position:absolute;
+		top:-7px;
+		margin-left:-12px;
+		z-index:200;
+		background: #333;
+	}
+ 
+	
+}
+ 
+

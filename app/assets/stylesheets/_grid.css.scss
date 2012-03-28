@@ -1,0 +1,21 @@
+#new_session {
+	@include container;
+	@include susy-grid-background;
+	
+	#location {
+		@include columns(4);
+		@include alpha;
+	}
+	#kite {
+		@include columns(4);
+	}
+	
+	#board {
+		@include columns(4);
+		@include omega;
+	}
+	
+	.field {
+		@include full;
+	}
+}

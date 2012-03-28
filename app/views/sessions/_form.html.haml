@@ -96,7 +96,17 @@
     = f.date_select :date
   .field
     = f.label :wind_speed
-    = f.number_field :wind_speed
+    = f.hidden_field :wind_speed
+    #windSpeedSlider
+    - content_for :domready do
+      :plain
+        $('#windSpeedSlider').slider({
+          animate: true,
+          min: 5,
+          max: 40,
+          step: 2.5,
+          change: function(event, ui){ $('#session_wind_speed').val(ui.value); }
+        });
   .field
     = f.label :comments
     = f.text_area :comments
